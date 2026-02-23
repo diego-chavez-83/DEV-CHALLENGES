@@ -1,0 +1,290 @@
+:root {
+	--bg-body-color: #fffefe;
+	--bg-layout-color: #e5e7ec;
+	--bg-color-layout: #F3F4F6;
+	--color-text-muted: #394150;
+	--color-text: #000000;
+	--color-anchor: #263fa9;
+	--bg-liam-color: #c1b6f8;
+	--bg-sophia-color: #edacd2;
+	--bg-ethan-color: #9dc4f8;
+	--bg-isabella-color: #f8d8b0;
+	--bg-noah-color: #86e7d4;
+	--font-family: "Outfit", sans-serif, "Arial";
+}
+
+/* ----------> GLOBAL STYLES <---------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 12px;
+}
+
+/* -------> BODY <-------- */
+
+body {
+	background-color: var(--bg-body-color);
+	width: 100%;
+	font-family: var(--font-family);
+	display: grid;
+	grid:
+		"main" 1fr "footer" auto / 1fr;
+	padding: 20px 0px;
+}
+
+/* -------> LAYOUT CONTAINER <-------- */
+
+.layout-container {
+	grid-area: main;
+	position: relative;
+	overflow: hidden;
+	background-color: var(--bg-color-layout);
+	align-items: center;
+	border-radius: 25px;
+	width: 90%;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.layout-container .bck_img {
+	position: absolute;
+	width: 100%;
+	inset: 0;
+}
+
+/* -------> HEADER <-------- */
+.header {
+	margin: 45px;
+	z-index: 20;
+}
+
+.header a {
+	text-decoration: none;
+	color: var(--color-anchor);
+	font-size: 1.25rem;
+	font-weight: 500;
+	margin-bottom: 60px;
+	line-height: 30px;
+}
+
+.header h1 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	color: var(--color-text);
+	margin: 1.5rem 0;
+}
+
+.header p {
+	color: var(--color-text-muted);
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.75rem;
+	margin-bottom: 2rem;
+}
+
+/* -------> TEAM MEMBERS CONTAINER <-------- */
+.meet-team-container {
+	width: 100%;
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-columns: 1fr;
+}
+
+.member-team {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.member-team .bakg-gradient {
+	position: absolute;
+	inset: 0;
+	background-image: url(./resources/Gradient.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.member-team .photo {
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+}
+
+.member-team .card-text {
+	position: absolute;
+	bottom: 65px;
+	left: 35px;
+	color: var(--bg-body-color);
+	z-index: 3;
+}
+
+.name {
+	margin-bottom: 0.5rem;
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.job-title {
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.meet-team-container :nth-child(1).member-team {
+	background-color: var(--bg-liam-color);
+}
+
+.meet-team-container :nth-child(2).member-team {
+	background-color: var(--bg-sophia-color);
+}
+
+.meet-team-container :nth-child(3).member-team {
+	background-color: var(--bg-ethan-color);
+}
+
+.meet-team-container :nth-child(4).member-team {
+	background-color: var(--bg-isabella-color);
+}
+
+.meet-team-container :nth-child(5).member-team {
+	background-color: var(--bg-noah-color);
+}
+
+.meet-team-container .no_team {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: start;
+	justify-content: end;
+	padding: 1.75rem 3.5rem 1.5rem 2.5rem;
+	font-size: 1.25rem;
+	background: var(--bg-layout-color);
+
+}
+
+.no_team .ancor {
+	display: inline-flex;
+	align-items: flex-end;
+	padding: 15px 0px;
+}
+
+.ancor a {
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-text-muted);
+	font-size: 1.25rem;
+	font-weight: 500;
+	margin-right: 5px;
+}
+
+/* ----------> FOOTER <------------- */
+.author-info {
+	grid-area: "footer";
+	font-size: 14px;
+	text-align: center;
+	margin-top: 16px;
+	color: rgb(55, 65, 81);
+}
+
+.author-info a {
+	text-decoration: none;
+}
+
+/* ------------> RESPONSIVE DESIGN <------------ */
+@media (min-width: 640px) {
+	* {
+		font-size: 16px;
+	}
+
+	.layout-container {
+		max-width: 500px;
+	}
+
+	.member-team .card-text {
+		bottom: 50px;
+		left: 65px;
+
+	}
+}
+
+@media (min-width: 768px) {
+	.layout-container {
+		width: 90%;
+		max-width: 1200PX;
+	}
+
+	.meet-team-container {
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.layout-container {
+		max-width: 1200px;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+	}
+
+	.header {
+		width: 50%;
+		grid-area: 1 / 1 / 2 / 6;
+	}
+
+	.member-team .photo img {
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.meet-team-container {
+		grid-area: 2 / 1 / 4 / 6;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	.member-team .card-text {
+		bottom: 30px;
+		left: 45px;
+	}
+
+	.meet-team-container :nth-child(1).member-team {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+
+	.meet-team-container :nth-child(2).member-team {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+
+	.meet-team-container :nth-child(3).member-team {
+		grid-area: 1 / 3 / 2 / 4;
+	}
+
+	.meet-team-container :nth-child(4).member-team {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+
+	.meet-team-container :nth-child(5).member-team {
+		grid-area: 2 / 3 / 3 / 4;
+	}
+
+	.meet-team-container .no_team {
+		grid-area: 2 / 1 / 3 / 2;
+	}
+}
